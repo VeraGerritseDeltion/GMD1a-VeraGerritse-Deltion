@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Assets\scrips\Bal.cs" />
     <Compile Include="Assets\scrips\Bump.cs" />
+    <Compile Include="Assets\scrips\Flipper.cs" />
     <Compile Include="Assets\scrips\Pru.cs" />
     <Compile Include="Assets\scrips\Shot.cs" />
     <Compile Include="Assets\scrips\Start.cs" />
