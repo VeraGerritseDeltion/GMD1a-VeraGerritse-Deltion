@@ -4,19 +4,32 @@ using System.Collections;
 public class Start : MonoBehaviour {
     public Vector3 dir;
     public Rigidbody bal;
-	
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public bool j;
 
-    public void OnCollisionEnter(Collision collision)
+
+    // Update is called once per frame
+    void Update()
     {
-        dir = collision.contacts[0].point;
+        if (j == true && Input.GetKey(KeyCode.A))
+        {
 
-     
-            bal.AddForce(dir * -191);
-        
+
+
+            bal.AddForce(dir * -80);
+        }
+
+        if (Input.GetKey(KeyCode.A)) { 
+        j = false;
+            }
+    
     }
+
+public void OnCollisionEnter(Collision collision)
+{
+        j = true;
+
+    dir = collision.contacts[0].point;
+   
+
+}
 }
