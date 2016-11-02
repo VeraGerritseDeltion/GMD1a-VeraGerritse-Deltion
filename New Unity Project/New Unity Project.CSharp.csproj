@@ -80,6 +80,8 @@
     <Compile Include="Assets\scrips\bumpers\Bump.cs" />
     <Compile Include="Assets\scrips\flippers\Fliper.cs" />
     <Compile Include="Assets\scrips\flippers\Flipper.cs" />
+    <Compile Include="Assets\scrips\flippers\Flipperrechts.cs" />
+    <Compile Include="Assets\scrips\flippers\force.cs" />
     <Compile Include="Assets\scrips\particles\Pru.cs" />
     <Compile Include="Assets\scrips\start\Shot.cs" />
     <Compile Include="Assets\scrips\start\Start.cs" />

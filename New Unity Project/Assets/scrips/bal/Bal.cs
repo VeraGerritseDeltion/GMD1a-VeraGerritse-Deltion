@@ -39,7 +39,10 @@ public class Bal : MonoBehaviour
     void Update()
     {
         {  
-            { 
+            { if(Input.GetKey(KeyCode.P))
+                {
+                    balls = 0;
+                }
             if (balls == 2)
                 {
                     over2 = true;
@@ -118,6 +121,12 @@ public class Bal : MonoBehaviour
             highscore = score;
         }
         hscore1.text = highscore.ToString();
+
+        if (House.balstart == true)
+        {
+            transform.position = nieuw;
+            House.balstart = false;
+        }
     }
     public void OnCollisionEnter(Collision collision)
     {
@@ -166,6 +175,7 @@ public class Bal : MonoBehaviour
             score1.text = score.ToString();
             
         }
+       
         
     }
 

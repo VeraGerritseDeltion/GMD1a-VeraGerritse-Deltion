@@ -26,7 +26,7 @@ public class Fliper : MonoBehaviour {
         if (force == true)
         {
             dir = collision.contacts[0].normal;
-            bal.AddForce(dir * -200);
+            bal.AddForce(dir * -300);
         }
         force = false;
     }

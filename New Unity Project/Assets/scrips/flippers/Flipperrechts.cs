@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Flipper : MonoBehaviour {
-    public static bool acfl;
+public class Flipperrechts : MonoBehaviour
+{
+    public static bool flip;
     public bool back;
     public float timer = 0;
     public float timer2 = 0;
@@ -12,38 +13,43 @@ public class Flipper : MonoBehaviour {
     public Vector3 dir;
     public Rigidbody bal;
 
+    // Use this for initialization
     void Start()
     {
-        down.x = 44;
-        up.x = 41f;
-        up.y = -29.167f;
-        up.z = -12.841f;
+        up.x = 21.128f;
+        up.y = 24.818f;
+        up.z = 9.732f;
+        down.x = 23.188f;
+        
+
     }
+
     // Update is called once per frame
     void Update()
     {
-        print(acfl);
-        if (Input.GetButton("Fire1"))
+        print(flip);
+        if (Input.GetButton("Fire2"))
         {
-            acfl = true;
+            flip = true;
             timer2 = 0;
         }
         if (timer > 0.1f)
         {
-            acfl = false;
-          transform.localEulerAngles = up;
+            flip = false;
+            transform.localEulerAngles = up;
+
 
         }
 
-        if (acfl == true)
+        if (flip == true)
         {
             transform.RotateAround
-                (transform.position, flipperl.transform.right, -200 * Time.deltaTime);
+                (transform.position, flipperl.transform.right, 200 * Time.deltaTime);
             timer = timer + Time.deltaTime;
 
         }
 
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire2"))
         {
             back = true;
             timer = 0;
@@ -51,16 +57,15 @@ public class Flipper : MonoBehaviour {
         if (timer2 > 0.1f)
         {
             back = false;
-           transform.localEulerAngles = down;
+            transform.localEulerAngles = down;
+
         }
 
         if (back == true)
         {
             transform.RotateAround
-                (transform.position, flipperl.transform.right, 200 * Time.deltaTime);
+                (transform.position, flipperl.transform.right, -200 * Time.deltaTime);
             timer2 = timer2 + Time.deltaTime;
         }
-
     }
- 
 }

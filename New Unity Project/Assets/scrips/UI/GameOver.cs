@@ -6,6 +6,9 @@ public class GameOver : MonoBehaviour {
     public Canvas gameover;
     public Text scor;
     public Text hscor;
+    public Button rest;
+    public bool resta;
+
 	// Use this for initialization
 	void Start () {
         gameover.enabled = false;
@@ -20,5 +23,14 @@ public class GameOver : MonoBehaviour {
         }
         scor.text = Bal.score.ToString();
         hscor.text = Bal.highscore.ToString();
+        if (resta == true)
+        {
+            gameover.enabled = false;
+            gameover = GetComponent<Canvas>();
+        }
 	}
+    public void Restart()
+    {
+        resta = true;
+    }
 }
