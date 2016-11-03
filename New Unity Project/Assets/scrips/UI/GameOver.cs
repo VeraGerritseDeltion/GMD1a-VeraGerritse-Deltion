@@ -8,6 +8,8 @@ public class GameOver : MonoBehaviour {
     public Text hscor;
     public Button rest;
     public bool resta;
+    public static bool newballs;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +19,8 @@ public class GameOver : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        newballs = false;
+       
         if (GameObject.Find("bal1").GetComponent<Bal>().gameover1 == true)
         {
             gameover.enabled = true;
@@ -27,6 +31,9 @@ public class GameOver : MonoBehaviour {
         {
             gameover.enabled = false;
             gameover = GetComponent<Canvas>();
+            resta = false;
+            newballs = true;
+           
         }
 	}
     public void Restart()

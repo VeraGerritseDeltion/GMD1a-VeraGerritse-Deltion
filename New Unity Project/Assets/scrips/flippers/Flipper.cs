@@ -22,7 +22,7 @@ public class Flipper : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        print(acfl);
+       
         if (Input.GetButton("Fire1"))
         {
             acfl = true;

@@ -18,7 +18,14 @@ public class House : MonoBehaviour {
         start = GetComponent<Canvas>();
 
     }
-  
+  void Update()
+    {
+        if (GameOver.newballs == true)
+        {
+            start.enabled = true;
+            start = GetComponent<Canvas>();
+        }
+    }
     public void OnButtonClick()
     {
         anim.Play("colorraven");

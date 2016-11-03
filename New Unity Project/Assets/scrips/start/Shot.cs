@@ -17,11 +17,8 @@ public class Shot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonUp("Jump"))
-        {
-            print(tijd);
-        }
-        if (Input.GetAxis("Jump")> 0 && coli == true)
+       
+        if (Input.GetButton("Jump") && coli == true)
         {
             handen = handen + 1;
             tijd = Time.deltaTime * handen;

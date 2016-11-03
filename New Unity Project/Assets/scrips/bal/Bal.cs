@@ -25,6 +25,9 @@ public class Bal : MonoBehaviour
     public bool over2;
     public bool over1;
     public bool gameover1;
+    public static bool bal2;
+    public static bool bal3;
+    public int testscore = 0;
 
 
 
@@ -33,24 +36,46 @@ public class Bal : MonoBehaviour
         nieuw.x = -7.58f;
         nieuw.y = 0.57f;
         nieuw.z = 3.19f;
+        
     }
 
 
     void Update()
     {
-        {  
-            { if(Input.GetKey(KeyCode.P))
+        { {
+                score1.text = score.ToString();
+
+                if (GameOver.newballs == true)
+            {
+                balls = 3;
+                    score = 0;
+            }
+
+            if (Input.GetKey(KeyCode.P))
                 {
                     balls = 0;
                 }
+
+            if (balls == 3)
+                {
+                    bal3 = true;
+                }
+                else
+                {
+                    bal3 = false;
+                }
+
             if (balls == 2)
                 {
                     over2 = true;
+                    bal2 = true;
                 }
             else
                 {
                     over2 = false;
+                    bal2 = false;
                 }
+
             if (balls  == 1)
                 {
                     over1 = true;
@@ -59,6 +84,7 @@ public class Bal : MonoBehaviour
                 {
                     over1 = false;
                 }
+
             if (balls == 0)
                 {
                     gameover1 = true;
@@ -172,8 +198,7 @@ public class Bal : MonoBehaviour
         {
             score = score + 10;
            
-            score1.text = score.ToString();
-            
+                 
         }
        
         

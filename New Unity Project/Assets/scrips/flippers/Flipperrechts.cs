@@ -27,7 +27,7 @@ public class Flipperrechts : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(flip);
+        
         if (Input.GetButton("Fire2"))
         {
             flip = true;
