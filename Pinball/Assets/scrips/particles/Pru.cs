@@ -6,6 +6,7 @@ public class Pru : MonoBehaviour {
     public bool lo;
     public bool lb;
     public bool rb;
+    public bool test;
     public ParticleSystem lop;
     public ParticleSystem rop;
     public ParticleSystem lbp;
@@ -15,9 +16,13 @@ public class Pru : MonoBehaviour {
    
     void Update()
     {
-        if (GameObject.Find("bal2").GetComponent<Bal>().dtl == true)
+        if (GameObject.Find("bal1").GetComponent<Bal>().dtl == true)
         {
             
+            lo = true;
+        }
+        if (test == true)
+        {
             lo = true;
         }
       
@@ -27,7 +32,7 @@ public class Pru : MonoBehaviour {
             lop = GetComponent<ParticleSystem>();
             var em = lop.emission;
             em.enabled = true;
-            print(GameObject.Find("bal2").GetComponent<Bal>().dtl == true);
+
         }
         else
         {
@@ -40,40 +45,40 @@ public class Pru : MonoBehaviour {
         if (ro == true)
         {
             rop = GetComponent<ParticleSystem>();
-            var em = rop.emission;
-            em.enabled = true;
+            var om = rop.emission;
+            om.enabled = true;
         }
         else
         {
             rop = GetComponent<ParticleSystem>();
-            var em = rop.emission;
-            em.enabled = false;
+            var om = rop.emission;
+            om.enabled = false;
         }
         //links boven
         if (lb == true)
         {
             lbp = GetComponent<ParticleSystem>();
-            var em = lbp.emission;
-            em.enabled = true;
+            var pm = lbp.emission;
+            pm.enabled = true;
         }
         else
         {
             lbp = GetComponent<ParticleSystem>();
-            var em = lbp.emission;
-            em.enabled = false;
+            var pm = lbp.emission;
+            pm.enabled = false;
         }
         //rechts boven
         if (rb == true)
         {
             rbp = GetComponent<ParticleSystem>();
-            var em = rbp.emission;
-            em.enabled = true;
+            var lm = rbp.emission;
+            lm.enabled = true;
         }
         else
         {
             rbp = GetComponent<ParticleSystem>();
-            var em = rbp.emission;
-            em.enabled = false;
+            var lm = rbp.emission;
+            lm.enabled = false;
         }
     }
 }

@@ -7,13 +7,13 @@ public class Wall : MonoBehaviour {
     public Vector3 closed;
 
 	void Update () {
-        // if(Bal.door == false)
-        if (Input.GetKey(KeyCode.K))
+        if(Bal.door == false)
+      
         {
             transform.position = open;
         }
-       // if (Bal.door == true)
-       if (Input.GetKey(KeyCode.L))
+        if (Bal.door == true)
+     
         {
             transform.position = closed;
         }

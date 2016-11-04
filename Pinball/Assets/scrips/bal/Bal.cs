@@ -43,13 +43,13 @@ public class Bal : MonoBehaviour
 
     void Update()
     {
-        { {
+        { {// score bij houden
                 score1.text = score.ToString();
-
+            
                 if (GameOver.newballs == true)
             {
                 balls = 3;
-                    score = 0;
+                score = 0;
             }
 
             if (Input.GetKey(KeyCode.P))
@@ -211,10 +211,10 @@ public class Bal : MonoBehaviour
         tijd = Time.deltaTime * handen;
     }
 
-    public void OnTriggerEnter(Collider Trigger)
+    void OnTriggerEnter(Collider trigger)
     {
         door = true;
-        balls = balls - 1;
+        print("jeah");
     }
     
 }
