@@ -75,6 +75,7 @@ public class Shot : MonoBehaviour {
         {
             coli = true;
             dir = collision.contacts[0].point;
+            Bal.door = false;
         }
         
     }

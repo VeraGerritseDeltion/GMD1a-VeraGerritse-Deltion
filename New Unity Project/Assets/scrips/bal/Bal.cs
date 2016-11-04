@@ -28,6 +28,7 @@ public class Bal : MonoBehaviour
     public static bool bal2;
     public static bool bal3;
     public int testscore = 0;
+    public static bool door;
 
 
 
@@ -208,6 +209,12 @@ public class Bal : MonoBehaviour
     {
         handen = handen + 1;
         tijd = Time.deltaTime * handen;
+    }
+
+    public void OnTriggerEnter(Collider Trigger)
+    {
+        door = true;
+        balls = balls - 1;
     }
     
 }

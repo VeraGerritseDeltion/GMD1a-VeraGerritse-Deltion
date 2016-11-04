@@ -72,10 +72,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\scrips\UI\Balcount.cs" />
     <Compile Include="Assets\scrips\UI\GameOver.cs" />
     <Compile Include="Assets\scrips\UI\House.cs" />
-    <Compile Include="Assets\scrips\UI\Over1.cs" />
-    <Compile Include="Assets\scrips\UI\Over2.cs" />
     <Compile Include="Assets\scrips\bal\Bal.cs" />
     <Compile Include="Assets\scrips\bumpers\Bump.cs" />
     <Compile Include="Assets\scrips\flippers\Fliper.cs" />
@@ -85,6 +84,7 @@
     <Compile Include="Assets\scrips\particles\Pru.cs" />
     <Compile Include="Assets\scrips\start\Shot.cs" />
     <Compile Include="Assets\scrips\start\Start.cs" />
+    <Compile Include="Assets\scrips\start\Wall.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
