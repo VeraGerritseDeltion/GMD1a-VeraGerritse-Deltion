@@ -9,35 +9,58 @@ public class GameOver : MonoBehaviour {
     public Button rest;
     public bool resta;
     public static bool newballs;
+    public float tijd;
     
 
-	// Use this for initialization
+	
 	void Start () {
+        // gameover scherm uit
         gameover.enabled = false;
         gameover = GetComponent<Canvas>();
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
+
+        //score overzicht
+        scor.text = Bal.score.ToString();
+        hscor.text = Bal.highscore.ToString();
+      
+        // bool uit
         newballs = false;
+       
+        // start timer
        
         if (GameObject.Find("bal1").GetComponent<Bal>().gameover1 == true)
         {
+            Timers();            
+        }
+        //na 3 sec game over scherm aan
+        if (tijd > 3)
+        {
             gameover.enabled = true;
         }
-        scor.text = Bal.score.ToString();
-        hscor.text = Bal.highscore.ToString();
+        
+        // als op knop is gedrukt game over scherm uit, reset tijd en ballen aanvullen.
         if (resta == true)
         {
             gameover.enabled = false;
             gameover = GetComponent<Canvas>();
             resta = false;
             newballs = true;
+            tijd = 0;
            
         }
 	}
-    public void Restart()
-    {
+        // knop voor restart
+        public void Restart()
+       {
         resta = true;
+         }
+
+       // sec timer
+      public void Timers()
+    {
+        tijd = tijd + Time.deltaTime;
     }
 }

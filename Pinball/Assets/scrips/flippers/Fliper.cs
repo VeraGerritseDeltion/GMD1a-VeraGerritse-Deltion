@@ -16,13 +16,13 @@ public class Fliper : MonoBehaviour {
 	
 	}
     public void OnCollisionEnter (Collision collision)
-    {
+    {//als flipper omhoog gaat kan er force zijn
         if(Flipper.acfl == true)
         {
             force = true;
         }
            
-
+        // apply force
         if (force == true)
         {
             dir = collision.contacts[0].normal;

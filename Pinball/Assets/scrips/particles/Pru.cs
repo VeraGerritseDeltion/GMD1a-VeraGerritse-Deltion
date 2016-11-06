@@ -2,83 +2,110 @@
 using System.Collections;
 
 public class Pru : MonoBehaviour {
-    public bool ro;
-    public bool lo;
-    public bool lb;
-    public bool rb;
-    public bool test;
-    public ParticleSystem lop;
-    public ParticleSystem rop;
-    public ParticleSystem lbp;
-    public ParticleSystem rbp;
-    
-
+ 
+    public Animator lu;
+    public Animator ld;
+    public Animator ru;
+    public Animator rd;
+    public bool lub = false;
+    public bool ldb = false;
+    public bool rub = false;
+    public bool rdb = false;
+    public float times;
    
+
     void Update()
-    {
-        if (GameObject.Find("bal1").GetComponent<Bal>().dtl == true)
+    {//links onder
+        if (Bal.part1 == true)
         {
-            
-            lo = true;
-        }
-        if (test == true)
-        {
-            lo = true;
+            ldb = true;
+            rub = true;
+            timer();
+           
         }
       
-        // links onder
-        if (lo == true)
+    //links boven
+        if (Bal.part2 == true)
         {
-            lop = GetComponent<ParticleSystem>();
-            var em = lop.emission;
-            em.enabled = true;
+            lub = true;
+            rub = true;
+            timer();
+        }
+       
+    //rechts onder
+        if (Bal.part3 == true)
+        {
+            rdb = true;
+            lub = true;
+            timer();
+        }
+    //rechts boven
+        if (Bal.part4 == true)
+        {
+            rub = true;
+            lub = true;
+            timer();
+        }
+//links boven particle
+        if (lub == true)
+        {
+            lu.Play("particlelu");
+          
+        }
+        else
+        {
+            lu.Play("particleluoff");
+        }
+        // rechts boven particle
+        if (rub == true)
+        {
+            ru.Play("partru");
+       
+        }
+        else
+        {
+            ru.Play("partruoff");
+        }
+        //rechts onder particle
+        if (rdb == true)
+        {
+            rd.Play("particlerd");
+           
+        }
+        else
+        {
+            rd.Play("particlerdoff");
+        }
+        //links onder particle
 
+        if (ldb == true)
+        {
+            ld.Play("particleld");
+       
         }
         else
         {
-            lop = GetComponent<ParticleSystem>();
-            var em = lop.emission;
-            em.enabled = false;
+            ld.Play("particleldoff");
         }
-
-        // rechts onder
-        if (ro == true)
+        //reset na 1 sec
+        if (times > 1)
         {
-            rop = GetComponent<ParticleSystem>();
-            var om = rop.emission;
-            om.enabled = true;
-        }
-        else
-        {
-            rop = GetComponent<ParticleSystem>();
-            var om = rop.emission;
-            om.enabled = false;
-        }
-        //links boven
-        if (lb == true)
-        {
-            lbp = GetComponent<ParticleSystem>();
-            var pm = lbp.emission;
-            pm.enabled = true;
-        }
-        else
-        {
-            lbp = GetComponent<ParticleSystem>();
-            var pm = lbp.emission;
-            pm.enabled = false;
-        }
-        //rechts boven
-        if (rb == true)
-        {
-            rbp = GetComponent<ParticleSystem>();
-            var lm = rbp.emission;
-            lm.enabled = true;
-        }
-        else
-        {
-            rbp = GetComponent<ParticleSystem>();
-            var lm = rbp.emission;
-            lm.enabled = false;
+            Bal.part1 = false;
+            Bal.part2 = false;
+            Bal.part3 = false;
+            Bal.part4 = false;
+            lub = false;
+            ldb = false;
+            rub = false;
+            rdb = false;
+            times = 0;
         }
     }
-}
+    //timer
+        public void timer()
+        {
+        
+        times = times + Time.deltaTime;
+        }
+    }
+

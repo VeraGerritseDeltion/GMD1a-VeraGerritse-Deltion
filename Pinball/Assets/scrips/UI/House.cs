@@ -13,13 +13,13 @@ public class House : MonoBehaviour {
   
     
 	void Start()
-    {
+    {//zorgt dat bij launch canvas aanstaat
         start.enabled = true;
         start = GetComponent<Canvas>();
 
     }
   void Update()
-    {
+    {//zodra game herstart canvas aanzetten
         if (GameOver.newballs == true)
         {
             start.enabled = true;
@@ -27,7 +27,7 @@ public class House : MonoBehaviour {
         }
     }
     public void OnButtonClick()
-    {
+    {// achtergrond kleur canvas uitzetten en bal plaatsen
         anim.Play("colorraven");
         
         start.enabled = false;
@@ -37,7 +37,7 @@ public class House : MonoBehaviour {
     }
 
     public void slyt()
-    {
+    {// achtergrond kleur canvas uitzetten en bal plaatsen
         anim.Play("colorhouse");
         start.enabled = false;
         start = GetComponent<Canvas>();
@@ -45,14 +45,14 @@ public class House : MonoBehaviour {
     }
 
     public void gryf()
-    {
+    {// achtergrond kleur canvas uitzetten en bal plaatsen
         anim.Play("colorgrif");
         start.enabled = false;
         start = GetComponent<Canvas>();
         balstart = true;
     }
    public void huf()
-    {
+    {// achtergrond kleur canvas uitzetten en bal plaatsen
         anim.Play("colorhuf");
         start.enabled = false;
         start = GetComponent<Canvas>();

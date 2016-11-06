@@ -13,9 +13,9 @@ public class Flipperrechts : MonoBehaviour
     public Vector3 dir;
     public Rigidbody bal;
 
-    // Use this for initialization
+    
     void Start()
-    {
+    {// start rotatie
         up.x = 21.128f;
         up.y = 24.818f;
         up.z = 9.732f;
@@ -24,15 +24,16 @@ public class Flipperrechts : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+   
     void Update()
-    {
+    {//als rechter muisklik indrukreset timer
         
         if (Input.GetButton("Fire2"))
         {
             flip = true;
             timer2 = 0;
         }
+        //duur rotatie
         if (timer > 0.1f)
         {
             flip = false;
@@ -40,7 +41,7 @@ public class Flipperrechts : MonoBehaviour
 
 
         }
-
+        // start timer en rotatie
         if (flip == true)
         {
             transform.RotateAround
@@ -48,19 +49,20 @@ public class Flipperrechts : MonoBehaviour
             timer = timer + Time.deltaTime;
 
         }
-
+        // rechtermuis loslaten en reset timer
         if (Input.GetButtonUp("Fire2"))
         {
             back = true;
             timer = 0;
         }
+        //duur rotatie
         if (timer2 > 0.1f)
         {
             back = false;
             transform.localEulerAngles = down;
 
         }
-
+        //start timer en rotatie
         if (back == true)
         {
             transform.RotateAround
