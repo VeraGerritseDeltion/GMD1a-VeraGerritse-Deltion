@@ -1,0 +1,2 @@
+﻿[Failure] Could not find file 'C:\Users\Vera Gerritse\Documents\GitHub\GMD1a-VeraGerritse\p3\unity project\project 3 vluchtelingen\Assets\Conversation manager.cs'.
+[Failure] Could not find file 'C:\Users\Vera Gerritse\Documents\GitHub\GMD1a-VeraGerritse\p3\unity project\project 3 vluchtelingen\Assets\Conversation manager.cs'.
