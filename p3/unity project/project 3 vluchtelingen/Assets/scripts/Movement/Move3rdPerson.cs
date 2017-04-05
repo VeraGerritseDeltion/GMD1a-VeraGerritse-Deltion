@@ -59,11 +59,6 @@ public class Move3rdPerson : MonoBehaviour {
         {
             cam.transform.position = Vector3.MoveTowards(cam.transform.position, camPoint.transform.position, scrollSpeed *Time.deltaTime);
         }
-
-
-
-
-
     }
 }
  
