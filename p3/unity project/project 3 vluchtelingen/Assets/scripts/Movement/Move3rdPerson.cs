@@ -22,33 +22,37 @@ public class Move3rdPerson : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         
-        cammera = cam.transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        
+    }
+    public void movement()
+    {
+        mid.transform.position = myTransform.position;
         chara = transform.position;
-        horizontal = Input.GetAxis("Mouse X") * mouseSen ;
-        vertical = Input.GetAxis("Mouse Y") * mouseSen ;
+        horizontal = Input.GetAxis("Mouse X") * mouseSen;
+        vertical = Input.GetAxis("Mouse Y") * mouseSen;
         movVert = Input.GetAxis("Vertical") * movSpeed;
         movHor = Input.GetAxis("Horizontal") * movSpeed;
         scroll = Input.GetAxis("Mouse ScrollWheel");
 
-       
-        cam.transform.Rotate(-vertical* Time.deltaTime, 0, 0);
-        if(Input.GetButton("Vertical") == true)
-        {
-            mid.transform.rotation = Quaternion.Lerp(mid.rotation, myTransform.rotation, turnSpeed * Time.deltaTime);
-            myTransform.Rotate(0, horizontal * Time.deltaTime, 0);
-            transform.Translate(new Vector3(movHor, 0, movVert) * Time.deltaTime);
-        }
-        else if (Input.GetButton("Horizontal"))
-        {
-        mid.transform.rotation = Quaternion.Lerp(mid.rotation, myTransform.rotation, turnSpeed * Time.time);
-        myTransform.Rotate (0,horizontal * Time.deltaTime,0);
-        transform.Translate(new Vector3 (movHor,0, movVert) * Time.deltaTime);
-        }
+
+        //Cam movement:
         mid.transform.Rotate(0, horizontal * Time.deltaTime, 0);
+
+        cam.transform.Rotate(-vertical * Time.deltaTime, 0, 0);
+
+        //Playerbody:
+        transform.Translate(new Vector3(movHor, 0, movVert) * Time.deltaTime);
+
+        if (movHor != 0 || movVert != 0)
+        {
+            print("iets");
+            myTransform.Rotate(0, horizontal * Time.deltaTime, 0);
+            myTransform.rotation = Quaternion.RotateTowards(myTransform.rotation, mid.transform.rotation, turnSpeed * Time.deltaTime);
+        }
 
         if (scroll > 0.0f)
         {
@@ -57,7 +61,7 @@ public class Move3rdPerson : MonoBehaviour {
 
         if (scroll < 0.0f)
         {
-            cam.transform.position = Vector3.MoveTowards(cam.transform.position, camPoint.transform.position, scrollSpeed *Time.deltaTime);
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, camPoint.transform.position, scrollSpeed * Time.deltaTime);
         }
     }
 }

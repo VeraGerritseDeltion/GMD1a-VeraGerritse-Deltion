@@ -14,6 +14,7 @@ public class ConversationManager : MonoBehaviour {
     public int rayCastLenght;
     public GameObject camRotation;
     public Conversation cons;
+    public bool isTalking;
 
     void Update () {
         if (Physics.Raycast(transform.position,camRotation.transform.forward, out targetHit, rayCastLenght))
@@ -28,11 +29,16 @@ public class ConversationManager : MonoBehaviour {
         Debug.DrawRay(transform.position, transform.forward * rayCastLenght);
 
           if (cons != null) {
+            isTalking = true;
             if (antwoordNummer < cons.questions.Count  )
             {
                 vraag = cons.questions[antwoordNummer];
                 antwoord1 = cons.awnsers[antwoordNummer * 2];
                 antwoord2 = cons.awnsers[antwoordNummer * 2 + 1];
+            }
+            else
+            {
+                isTalking = false;
             }
 
             if (antwoordNummer >= cons.questions.Count)
