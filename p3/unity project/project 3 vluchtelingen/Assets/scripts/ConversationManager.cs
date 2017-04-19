@@ -9,7 +9,6 @@ public class ConversationManager : MonoBehaviour {
     public string antwoord1;
     public string antwoord2;
     public int antwoordNummer;
-    public string iets= "antwoord";
     public RaycastHit targetHit;
     public int rayCastLenght;
     public GameObject camRotation;

@@ -18,6 +18,7 @@ public class Move3rdPerson : MonoBehaviour {
     public Vector3 cammera;
     public Transform mid;
     public float turnSpeed;
+    public bool isWalking;
 
 	// Use this for initialization
 	void Start () {
@@ -49,9 +50,14 @@ public class Move3rdPerson : MonoBehaviour {
 
         if (movHor != 0 || movVert != 0)
         {
-            print("iets");
-            myTransform.Rotate(0, horizontal * Time.deltaTime, 0);
             myTransform.rotation = Quaternion.RotateTowards(myTransform.rotation, mid.transform.rotation, turnSpeed * Time.deltaTime);
+            myTransform.Rotate(0, horizontal * Time.deltaTime, 0);
+            isWalking = true;
+           
+        }
+        else
+        {
+            isWalking = false;
         }
 
         if (scroll > 0.0f)
